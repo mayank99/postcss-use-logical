@@ -1,0 +1,32 @@
+{
+	"name": "postcss-use-logical",
+	"type": "module",
+	"version": "0.1.0",
+	"description": "Converts physical properties into logical properties",
+	"author": "Mayank",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mayank99/postcss-use-logical.git"
+	},
+	"files": [
+		"index.js"
+	],
+	"exports": {
+		".": "./index.js"
+	},
+	"devDependencies": {
+		"postcss": "latest",
+		"postcss-scss": "latest"
+	},
+	"peerDependencies": {
+		"postcss": "^8.0.0"
+	},
+	"keywords": [
+		"postcss",
+		"postcss-plugin",
+		"properties",
+		"logical",
+		"physical",
+		"rtl"
+	]
+}
