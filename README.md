@@ -25,7 +25,7 @@ Input:
 	width: 200px;
 	padding-top: 10px;
 	padding-bottom: 20px;
-	margin-left: 0 auto;
+	margin: 0 auto;
 }
 ```
 
