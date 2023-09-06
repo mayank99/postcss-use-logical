@@ -15,8 +15,7 @@
 		".": "./index.js"
 	},
 	"devDependencies": {
-		"postcss": "latest",
-		"postcss-scss": "latest"
+		"postcss": "latest"
 	},
 	"peerDependencies": {
 		"postcss": "^8.0.0"
@@ -28,5 +27,8 @@
 		"logical",
 		"physical",
 		"rtl"
-	]
+	],
+	"scripts": {
+		"dev": "cd website && pnpm run dev"
+	}
 }

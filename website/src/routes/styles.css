@@ -1,0 +1,26 @@
+@layer reset, globals, layouts, routes;
+
+@import '@acab/reset.css' layer(reset);
+
+@layer globals {
+	:root {
+		color-scheme: dark;
+		--fg: #5fc4f0;
+		--bg: #0b3449;
+	}
+
+	::selection {
+		background-color: var(--fg);
+		color: var(--bg);
+	}
+
+	:focus-visible {
+		outline: 3px solid var(--fg);
+		outline-offset: 3px;
+	}
+
+	/* this bullshit cannot be turned off */
+	#svelte-announcer {
+		display: none;
+	}
+}
