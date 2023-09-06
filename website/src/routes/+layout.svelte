@@ -47,10 +47,6 @@
 		}
 
 		main {
-			position: relative;
-			overflow-x: clip;
-			margin-inline: -6px;
-			padding-inline: 6px;
 			padding-block-end: 2rem;
 		}
 	}

@@ -29,41 +29,43 @@
 	/>
 </svelte:head>
 
-{#if !form?.output}
-	<form method="POST" use:enhance in:slideIn={{ reverse: true }} out:slideOut>
-		<label for="source-input">Input (legacy CSS/SCSS code):</label>
-		<textarea
-			name="source"
-			id="source-input"
-			required
-			value={`${form?.source ?? ''}`}
-			aria-describedby={form?.error ? 'error' : null}
-			bind:this={input}
-		/>
+<div>
+	{#if !form?.output}
+		<form method="POST" use:enhance in:slideIn={{ reverse: true }} out:slideOut>
+			<label for="source-input">Input (legacy CSS/SCSS code):</label>
+			<textarea
+				name="source"
+				id="source-input"
+				required
+				value={`${form?.source ?? ''}`}
+				aria-describedby={form?.error ? 'error' : null}
+				bind:this={input}
+			/>
 
-		{#if form?.error}
-			<p id="error">
-				Unable to process input. {form.error}
-			</p>
-		{/if}
+			{#if form?.error}
+				<p id="error">
+					Unable to process input. {form.error}
+				</p>
+			{/if}
 
-		<button>Convert</button>
-	</form>
-{/if}
+			<button>Convert</button>
+		</form>
+	{/if}
 
-{#if form?.output}
-	<section in:slideIn out:slideOut={{ reverse: true }}>
-		<label for="postcss-output">Output:</label>
-		<textarea
-			id="postcss-output"
-			readonly
-			value={form.output}
-			bind:this={output}
-		/>
+	{#if form?.output}
+		<section in:slideIn out:slideOut={{ reverse: true }}>
+			<label for="postcss-output">Output:</label>
+			<textarea
+				id="postcss-output"
+				readonly
+				value={form.output}
+				bind:this={output}
+			/>
 
-		<a href="/">Start over</a>
-	</section>
-{/if}
+			<a href="/">Start over</a>
+		</section>
+	{/if}
+</div>
 
 <style>
 	@layer reset {
@@ -117,6 +119,15 @@
 			background-color: var(--fg);
 			font-weight: 600;
 			font-size: 1.5rem;
+		}
+
+		/* for animation */
+		div {
+			block-size: 100%;
+			position: relative;
+			overflow-x: clip;
+			margin-inline: -6px;
+			padding-inline: 6px;
 		}
 	}
 </style>

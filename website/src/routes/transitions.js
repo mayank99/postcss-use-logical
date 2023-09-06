@@ -1,4 +1,5 @@
 import { cubicIn, cubicOut } from 'svelte/easing';
+import { fade } from 'svelte/transition';
 
 export function slideIn(node, { duration = 300, reverse = false }) {
 	return {
@@ -12,16 +13,20 @@ export function slideIn(node, { duration = 300, reverse = false }) {
 }
 
 export function slideOut(node, { duration = 250, reverse = false }) {
+	const faded = fade(node, { duration });
+
 	return {
 		duration,
-		css: (t) => {
+		css: (t, u) => {
 			const eased = cubicIn(t);
 			const translate = (reverse ? (1 - eased) : (eased - 1)) * 100;
+
 			return `
-					position: absolute;
-					inset: 0;
-					transform: translateX(${Math.round(translate)}%);
-				`;
-		},
-	};
+				${faded.css?.(t, u)};
+				position: absolute;
+				inset: 0;
+				transform: translateX(${Math.round(translate)}%);
+			`;
+		}
+	}
 }
