@@ -2,6 +2,8 @@
 
 PostCSS plugin that essentially does the opposite of [`postcss-logical`](https://www.npmjs.com/package/postcss-logical); it converts physical CSS properties into their logical equivalents.
 
+Check out demo/playground at: https://logical.mynk.app/
+
 ## Usage
 
 ```
