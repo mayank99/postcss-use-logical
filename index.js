@@ -15,9 +15,14 @@ export default {
 			return _skip;
 		})()) return;
 
-		// do the 1:1 find-and-replace for simple propeties
+		// do the 1:1 find-and-replace for simple properties
 		if (Object.keys(easyPhysicalProps).includes(declaration.prop)) {
 			declaration.prop = easyPhysicalProps[declaration.prop];
+		}
+
+		// clone with fallback for ones that don't have great support
+		if (Object.keys(withFallbacks).includes(declaration.prop)) {
+			declaration.cloneBefore({ prop: withFallbacks[declaration.prop] })
 		}
 
 		// convert the more difficult shorthands that can have 2-4 values
@@ -59,10 +64,8 @@ const easyPhysicalProps = {
 	height: 'block-size',
 	'min-height': 'min-block-size',
 	'max-height': 'max-block-size',
-	'overflow-x': 'overflow-inline',
-	'overflow-y': 'overflow-block',
-	'overscroll-behavior-x': 'overflow-inline',
-	'overscroll-behavior-y': 'overflow-block',
+	'overscroll-behavior-x': 'overscroll-behavior-inline',
+	'overscroll-behavior-y': 'overscroll-behavior-block',
 	'border-top': 'border-block-start',
 	'border-top-color': 'border-block-start-color',
 	'border-top-style': 'border-block-start-style',
@@ -85,6 +88,12 @@ const easyPhysicalProps = {
 	'border-bottom-right-radius': 'border-end-end-radius',
 	'contain-intrinsic-width': 'contain-intrinsic-inline-size',
 	'contain-intrinsic-height': 'contain-intrinsic-block-size',
+};
+
+// these ones don't have great support so need fallback
+const withFallbacks = {
+	'overflow-x': 'overflow-inline',
+	'overflow-y': 'overflow-block',
 };
 
 // this could probably be automated, but there are subtle differences so i just wrote it by hand 🤷
