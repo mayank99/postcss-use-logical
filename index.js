@@ -22,7 +22,7 @@ export default {
 
 		// clone with fallback for ones that don't have great support
 		if (Object.keys(withFallbacks).includes(declaration.prop)) {
-			declaration.cloneBefore({ prop: withFallbacks[declaration.prop] })
+			declaration.cloneAfter({ prop: withFallbacks[declaration.prop] })
 		}
 
 		// convert the more difficult shorthands that can have 2-4 values
