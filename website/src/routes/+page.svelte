@@ -53,15 +53,13 @@
 
 {#if form?.output}
 	<section in:slideIn out:slideOut={{ reverse: true }}>
-		<figure>
-			<figcaption><label for="postcss-output">Output:</label></figcaption>
-			<textarea
-				id="postcss-output"
-				readonly
-				value={form.output}
-				bind:this={output}
-			/>
-		</figure>
+		<label for="postcss-output">Output:</label>
+		<textarea
+			id="postcss-output"
+			readonly
+			value={form.output}
+			bind:this={output}
+		/>
 
 		<a href="/">Start over</a>
 	</section>
@@ -85,10 +83,6 @@
 			gap: 16px;
 			block-size: 100%;
 			transition: transform;
-		}
-
-		figure {
-			display: contents;
 		}
 
 		textarea {
