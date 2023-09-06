@@ -47,30 +47,31 @@
 		}
 
 		main {
-			padding-block-end: 2rem;
+			display: flex;
+			flex-direction: column;
 		}
-	}
 
-	h1 {
-		font-style: italic;
-		display: inline-block;
-	}
+		h1 {
+			font-style: italic;
+			display: inline-block;
+		}
 
-	a {
-		display: inline-flex;
-		align-items: center;
-		margin-inline-start: auto;
-		gap: 4px;
-	}
+		a {
+			display: inline-flex;
+			align-items: center;
+			margin-inline-start: auto;
+			gap: 4px;
+		}
 
-	header {
-		display: grid;
-		align-items: baseline;
-		grid-template-columns: 1fr auto;
-		gap: 8px;
-	}
+		header {
+			display: grid;
+			align-items: baseline;
+			grid-template-columns: 1fr auto;
+			gap: 8px;
+		}
 
-	p {
-		grid-column: 1 / -1;
+		p {
+			grid-column: 1 / -1;
+		}
 	}
 </style>
