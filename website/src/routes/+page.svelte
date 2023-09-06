@@ -22,8 +22,11 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>postcss-use-logical</title>
+	<meta
+		name="description"
+		content="auto convert physical CSS properties to logical"
+	/>
 </svelte:head>
 
 {#if !form?.output}
@@ -107,6 +110,7 @@
 
 		textarea {
 			font-size: 1rem;
+			tab-size: 2;
 		}
 
 		:is(button, a) {
