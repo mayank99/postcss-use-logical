@@ -6,7 +6,7 @@ Check out demo/playground at: https://logical.mynk.app/
 
 ## Usage
 
-This plugin is designed to be run as a one-off script for converting your legacy code.
+This plugin is designed to be run as a one-off script for migrating entire codebases from physical properties to logical ones. It probably should *not* be added to your project's regular PostCSS config.
 
 ```
 npm install postcss postcss-use-logical
@@ -18,6 +18,9 @@ import postcssUseLogical from 'postcss-use-logical';
 
 postcss([postcssUseLogical]).process(/* ... */);
 ```
+
+> **Note**
+> This plugin will convert _all_ physical properties, which may not always be desirable. Always verify the changes manually.
 
 ## Example
 

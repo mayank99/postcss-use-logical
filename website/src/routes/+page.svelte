@@ -32,7 +32,7 @@
 <div>
 	{#if !form?.output}
 		<form method="POST" use:enhance in:slideIn={{ reverse: true }} out:slideOut>
-			<label for="source-input">Input (legacy CSS/SCSS code):</label>
+			<label for="source-input">Input (CSS/SCSS code containing physical properties):</label>
 			<textarea
 				name="source"
 				id="source-input"
@@ -54,7 +54,7 @@
 
 	{#if form?.output}
 		<section in:slideIn out:slideOut={{ reverse: true }}>
-			<label for="postcss-output">Output:</label>
+			<label for="postcss-output">Output (containing logical properties):</label>
 			<textarea
 				id="postcss-output"
 				readonly
