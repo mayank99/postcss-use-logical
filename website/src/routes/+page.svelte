@@ -1,5 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
+	import { afterNavigate } from '$app/navigation';
 	import { slideIn, slideOut } from './transitions.js';
 
 	/** @type {import('./$types').ActionData}*/
@@ -11,8 +12,14 @@
 	/** @type {HTMLElement}*/
 	let output;
 
+	afterNavigate(({ type }) => {
+		if (type !== 'enter') {
+			input?.focus();
+		}
+	});
+
 	$: {
-		if (form?.error || !form?.output) {
+		if (form?.error) {
 			input?.focus();
 		}
 		if (form?.output) {
@@ -32,7 +39,9 @@
 <div>
 	{#if !form?.output}
 		<form method="POST" use:enhance in:slideIn={{ reverse: true }} out:slideOut>
-			<label for="source-input">Input (CSS/SCSS code containing physical properties):</label>
+			<label for="source-input"
+				>Input (CSS/SCSS code containing physical properties):</label
+			>
 			<textarea
 				name="source"
 				id="source-input"
@@ -54,7 +63,8 @@
 
 	{#if form?.output}
 		<section in:slideIn out:slideOut={{ reverse: true }}>
-			<label for="postcss-output">Output (containing logical properties):</label>
+			<label for="postcss-output">Output (containing logical properties):</label
+			>
 			<textarea
 				id="postcss-output"
 				readonly
