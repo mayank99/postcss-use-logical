@@ -48,7 +48,7 @@ export const postcss = true;
 const easyPhysicalProps = {
 	top: 'inset-block-start',
 	bottom: 'inset-block-end',
-	left: 'inset-inline-end',
+	left: 'inset-inline-start',
 	right: 'inset-inline-end',
 	'margin-top': 'margin-block-start',
 	'margin-bottom': 'margin-block-end',
