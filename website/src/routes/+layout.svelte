@@ -1,5 +1,8 @@
 <script>
 	import './styles.css';
+
+	/** @type {Props} */
+	let { children } = $props();
 </script>
 
 <header>
@@ -22,7 +25,7 @@
 
 <main>
 	<h2>Demo</h2>
-	<slot />
+	{@render children?.()}
 </main>
 
 <style>

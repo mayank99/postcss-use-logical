@@ -3,14 +3,20 @@
 	import { afterNavigate } from '$app/navigation';
 	import { slideIn, slideOut } from './transitions.js';
 
-	/** @type {import('./$types').ActionData}*/
-	export let form;
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('./$types').ActionData} form
+	 */
+
+	/** @type {Props} */
+	let { form } = $props();
 
 	/** @type {HTMLElement}*/
-	let input;
+	let input = $state();
 
 	/** @type {HTMLElement}*/
-	let output;
+	let output = $state();
 
 	afterNavigate(({ type }) => {
 		if (type !== 'enter') {
@@ -18,14 +24,14 @@
 		}
 	});
 
-	$: {
+	$effect(() => {
 		if (form?.error) {
 			input?.focus();
 		}
 		if (form?.output) {
 			output?.focus();
 		}
-	}
+	});
 </script>
 
 <svelte:head>
@@ -49,7 +55,7 @@
 				value={`${form?.source ?? ''}`}
 				aria-describedby={form?.error ? 'error' : null}
 				bind:this={input}
-			/>
+			></textarea>
 
 			{#if form?.error}
 				<p id="error">
@@ -70,7 +76,7 @@
 				readonly
 				value={form.output}
 				bind:this={output}
-			/>
+			></textarea>
 
 			<a href="/">Start over</a>
 		</section>
